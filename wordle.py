@@ -111,7 +111,7 @@ class Wordle:
         return w_words[0:num]
     
     # solver() uses no parameters and only relies on the object's properties.
-    # 
+    # After splitting the input into different letters, it checks what the second charcter (the integer) is and based on its value, sorts the letters into different lists. Because yellow and green are based on the letter's position in the word, those are dictionaries with the index as the value. For each letter, it goes through a process of removing any words that don't match the information from the guess from a list of possible words. For green, any words where the letter doesn't equal the word's letter at the same index. For yellow, any words that don't include the letter are removed. In case there aren't any green letters, all words that have the same letter in the same position are removed as well. For gray, any words that include the letter are removed. After each guess, the program asks the user if the game was won after the guess. If it was, the program ends, but if it wasn't, it continues until it is.
     
     def solver(self):
         guesses = 0
@@ -161,6 +161,9 @@ class Wordle:
             green.clear()
             yellow.clear()
             gray.clear()
+            
+    # solver() uses no parameters and only relies on the object's properties.
+    # A random word is chosen from the answer list. The game asks for a five-letter guess and based on similar criteria from the previous method, in reverse, returns a letter and a symbol as indicated in the instructions. This repeats until the user guesses the word or six guesses are up.
             
     def wordle(self):
         special = random.choice(self.words)
